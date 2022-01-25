@@ -1,27 +1,14 @@
-import { IDataService } from './models/IDataService'
-import { Movie } from './models/movie'
-import {MockMovieService, MovieService} from './models/MovieService'
+import { Main } from "./models/Main";
+import { DataService } from "./services/DataService";
+import { IDataService } from "./services/IDataService";
+import { MockDataService } from "./services/MockDataService";
 
 window.onload = function () {
-    let service = new MockMovieService()
-    let main = new Main()
-    // console.log(main.start(service));
-    main.start(service)
+  let main = new Main();
 
-    // let href = main.start().poster.href
-    // document.body.innerHTML = `<img src=${href}>`
+  // Choose which data source to use, the fake (mocked) data or the real data
+  let service: IDataService = new DataService();
+  //   let service: IDataService = new MockDataService();
 
-}
-
-class Main {
-  start(service:IDataService) {
-    let p = new Movie()
-    p.title = 'Sara'
-    p.poster = new URL
-          ('https://png.pngtree.com/png-clipart/20191120/original/pngtree-pink-watercolor-brushes-png-image_5054156.jpg')
-    //   console.log(p);
-    //   return p
-      console.log(service.GetData());
-    }
-    
-}
+  main.Start(service);
+};

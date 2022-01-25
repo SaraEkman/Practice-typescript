@@ -1,10 +1,6 @@
 export class Movie {
-    title: String;
-    poster: URL;
-    // constructor(input:String, poster:URL) {
-    //     this.title 
-    // }
+  Title: string;
+  Year: number;
+  ImageUrl: string;
+  Description: string;
 }
-
-
-
